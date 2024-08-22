@@ -1,0 +1,239 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    text-align: center;
+}
+input {
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    height: 100vh;
+    overflow: hidden;
+}
+.hide {
+    display: none;
+}
+a {
+    text-decoration: none;
+}
+.control-form {
+    padding: 0 15px;
+}
+.stop-btn {
+    display: none;
+}
+.stop-btn.active {
+    display: inline-block;
+}
+.result-list {
+    display: none;
+    padding: 0 15px;
+}
+.result-list.active {
+    display: block;
+}
+.urls-item {
+    border-bottom: 1px dashed #eee;
+    padding: 5px 3px 8px 3px;
+    flow:horizontal;
+}
+.urls-item:hover {
+    background: #f5f6f7;
+}
+.urls-item .item-url {
+    width: 1*;
+    padding-right: 10px;
+}
+.urls-item .item-status {
+    width: 40px;
+    text-align: center;
+    background: #f0f0f0;
+}
+.status-error {
+    color: #f40;
+}
+.start-control {
+    margin-top: 50px;
+}
+.start-btn {
+    display: inline-block;
+    background: #0071b9;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 5px;
+    padding: 8px 20px 12px;
+}
+.start-btn:hover {
+    background: #2299dd;
+}
+.form-header {
+    margin-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    background: #fff;
+    height: 50px;
+}
+.form-close {
+    float: right;
+    padding-top: 10px;
+}
+.form-content {
+    overflow-y: scroll;
+    overflow-y: scroll;
+}
+
+.setting-form {
+    padding: 30px;
+}
+.form-item {
+    flow:horizontal;
+    border-spacing: 10px;
+    margin-bottom: 15px;
+}
+.form-label {
+    text-align: right;
+    height: 38px;
+    line-height: 38px;
+}
+.input-block {
+    width:1*;
+    position: relative;
+}
+.layui-input {
+    font-size: inherit;
+    outline: 0;
+    transition: all .3s;
+    -webkit-transition: all .3s;
+    box-sizing: border-box;
+    height: 38px;
+    line-height: 38px;
+    border-width: 1px;
+    border-style: solid;
+    background-color: #fff;
+    color: rgba(0,0,0,.85);
+    border-radius: 2px;
+    display: block;
+    width: 100%;
+    padding-left: 10px;
+    border-color: #eee;
+}
+.soft-title a {
+    color: #fff;
+}
+.home {
+    text-align: center;
+    font-size: 48px;
+    padding-top: 180px;
+}
+.steps {
+    flow:horizontal;
+    margin-bottom: 20px;
+}
+.step {
+    width: 1*;
+}
+.step.active {
+    color: #29d;
+}
+
+table {
+    max-width: 100%;
+    margin-top: 10px;
+    border-collapse: collapse;
+}
+
+table,
+th,
+td {
+    border: 1px solid #f0f0f0;
+}
+
+th {
+    background: #0068AB;
+    color: #fff;
+    font-weight: 100;
+}
+
+th,
+td {
+    text-align: center;
+    padding: 6px;
+}
+.text-muted {
+    color: #999;
+    text-align: left;
+}
+.text-left {
+    text-align: left;
+}
+.layout {
+    flow:horizontal;
+}
+.aside {
+    width: 180px;
+    height: 100vh;
+    background: #0071b9;
+    color: #fff;
+    text-align: center;
+}
+.aside-menus {
+    margin-left: 50px;
+    margin-top: 50px;
+}
+.menu-item {
+    color: #fff;
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+    height: 50px;
+    line-height: 50px;
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+    cursor: pointer;
+    transition: all .3s;
+}
+.menu-item.active,.menu-item:hover {
+    background: #fff;
+    color: #0071b9;
+}
+.menu-item:hover {
+    background: #f1f1f1;
+}
+.container {
+    width: 1*;
+    background: #fff;
+}
+.help-container {
+    text-align: center;
+    font-size: 20px;
+    margin: 200px auto;
+    cursor: pointer;
+    color: #0071b9;
+}
+.help-tips {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #888;
+}
+.task-head {
+    text-align: left;
+    margin: 10px;
+}
+.wechat-qr {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 216px;
+}
+.wechat-qr .qr {
+    object-fit: contain;
+    width: 100%;
+}
+.wechat-qr .text {
+    margin-top: 8px;
+    font-size: 16px;
+}
+.control-btns button {
+    margin: 0 2px;
+}

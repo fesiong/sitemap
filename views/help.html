@@ -1,0 +1,29 @@
+<html resizeable>
+<head>
+    <style src="home://views/style.css" />
+    <meta charSet="utf-8" />
+</head>
+<body>
+<div class="layout">
+    <div class="aside">
+        <h1 class="soft-title"><a href="home://views/main.html">Sitemap<br/>生成器</a></h1>
+        <div class="aside-menus">
+            <a href="home://views/task.html" class="menu-item">开始使用</a>
+            <a href="home://views/help.html" class="menu-item active">使用教程</a>
+        </div>
+    </div>
+    <div class="container">
+      <div class="help-container">
+          <div><a #helpLink>访问使用帮助页面</a></div>
+          <div class="help-tips">注意：一定要认真阅读帮助页面，每一个操作步骤都要细心按照教程执行，注意截图中的红字，否则容易出错。</div>
+      </div>
+    </div>
+</div>
+
+</body>
+</html>
+<script type="text/tiscript">
+  event click $(#helpLink){
+    view.openUrl("https://www.anqicms.com/google-indexing-help.html")
+  }
+</script>

@@ -1,0 +1,137 @@
+<html resizeable>
+<head>
+    <style src="home://views/style.css" />
+    <meta charSet="utf-8" />
+</head>
+<body>
+<div class="layout">
+    <div class="aside">
+        <h1 class="soft-title"><a href="home://views/main.html">Sitemap<br/>生成器</a></h1>
+        <div class="aside-menus">
+            <a href="home://views/task.html" class="menu-item active">开始使用</a>
+            <a href="home://views/help.html" class="menu-item">使用教程</a>
+        </div>
+    </div>
+    <div class="container">
+        <div>
+            <form class="control-form" #taslForm>
+                <div class="form-header">、
+                    <h3>Sitemap 生成</h3>
+                </div>
+                <div class="form-content">
+                    <div class="form-item">
+                        <div class="form-label">网址地址：</div>
+                        <div class="input-block">
+                            <input(domain) class="layui-input" type="text" placeholder="http://或https://开头的网站地址" />
+                            <div class="text-muted">程序将抓取推送网址下的所有链接。</div>
+                        </div>
+                    </div>
+                    <div>
+                        <button type="default" class="stop-btn" #cancelTask>停止</button>
+                        <button type="default" #taskSubmit>开始执行</button>
+                    </div>
+                </div>
+            </form>
+            <div class="result-list" #resultList>
+                <div class="form-header">
+                    <h3>查看结果</h3>
+                </div>
+                <div class="form-content">
+                    <table>
+                        <colgroup>
+                            <col width="40%">
+                            <col width="60%">
+                        </colgroup>
+                        <tbody>
+                        <tr>
+                            <td>目标站点</td>
+                            <td #resultDomain></td>
+                        </tr>
+                        <tr>
+                            <td>保存结果</td>
+                            <td #resultPath></td>
+                        </tr>
+                        <tr>
+                            <td>任务状态</td>
+                            <td #resultStatus></td>
+                        </tr>
+                        <tr>
+                            <td>发现页面</td>
+                            <td #resultTotal></td>
+                        </tr>
+                        <tr>
+                            <td>已处理页面</td>
+                            <td #resultFinished></td>
+                        </tr>
+                        <tr>
+                            <td>错误页面</td>
+                            <td #resultNotfound></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+
+<script type="text/tiscript">
+    let running = false;
+    function syncTask() {
+        let res = view.getRunningTask()
+        if (res) {
+            let result = JSON.parse(res);
+            running = true;
+            $(#cancelTask).@.addClass("active");
+            $(#resultList).@.addClass("active");
+            $(#taskSubmit).text = "执行中";
+            showResult(result);
+        } else {
+            running = false;
+            $(#cancelTask).@.removeClass("active");
+            $(#resultList).@.removeClass("active");
+            $(#taskSubmit).text = "开始执行";
+            return;
+        }
+    }
+    event click $(#cancelTask){
+        $(#cancelTask).@.removeClass("active");
+        $(#resultList).@.removeClass("active");
+    }
+    event click $(#taskSubmit){
+        let res = view.createTask($(#taslForm).value.domain)
+        let result = JSON.parse(res)
+
+        view.msgbox(#alert, result.msg);
+        if (result.status == 1) {
+           // 同步结果
+            syncTask();
+        }
+    }
+    // 打开本地路径
+    event click $(#resultPath){
+        view.openUrl($(#resultPath).text)
+    }
+    // 展示结果
+    function showResult(result) {
+        if (!result) {
+            return;
+        }
+        $(#resultDomain).text = result.domain;
+        $(#resultPath).text = result.save_path;
+        $(#resultStatus).text = result.status;
+        $(#resultTotal).text = result.total + "条";
+        $(#resultFinished).text = result.finished + "条";
+        $(#resultNotfound).text = result.notfound + "条";
+    }
+    // 进来的时候先执行一遍
+    syncTask();
+    // 1秒钟刷新一次
+    self.timer(1000ms, function() {
+        syncTask();
+        return true;
+    });
+</script>
